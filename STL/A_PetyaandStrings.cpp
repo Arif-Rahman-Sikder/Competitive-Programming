@@ -13,22 +13,13 @@ typedef double dl;
 
 int main() {
     optimize();
-    int t;
-    cin>>t;
-    while(t--){
-        string s;
-        cin>>s;
-        int sum=0;
-        for(auto u: s){
-            sum+=(u-'0');
-
-        }
-        string str= to_string (sum);
-        string temp=str;
-        reverse(temp.begin(),temp.end());
-        if(temp==str) cout<<"Yes"<<endl;
-        else cout<<"No"<<endl;
-
-    }
+    string s1, s2;
+    cin>>s1;
+    cin>>s2;
+    for(int i=0;i<=s1.size();i++) s1[i]=tolower(s1[i]);
+    for(int i=0;i<=s2.size();i++) s2[i]=tolower(s2[i]);
+    if(s1<s2) cout<<-1<<endl;
+    if(s2<s1) cout<<1<<endl;
+    if(s1==s2) cout<<0<<endl;
     return 0;
 }
