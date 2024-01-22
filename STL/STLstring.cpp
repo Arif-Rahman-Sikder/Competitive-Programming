@@ -13,141 +13,192 @@ typedef double dl;
 
 int main() {
     optimize();
-     // Declaration of a vector
-    vector<int> v;
+     /// Declare string
+    string s;
 
-    // Adding elements to the vector
-    v.push_back(1);
-    v.push_back(2);
-    v.push_back(3);
+    /// Assign string
+    s = "abcdf";
 
-    // Output the elements of the vector
-    cout << v[0] << " " << v[1] << " " << v[2] << endl; // 1 2 3
+    /// Printing size of string
+    cout << s.size() << endl; /// 5
 
-    // Modifying an element in the vector
-    v[1] = 3;
-    cout << v[0] << " " << v[1] << " " << v[2] << endl; // 1 3 3
+    /// Printing string
+    cout << s << endl; /// abcdf
 
-    // Output the size of the vector
-    cout << v.size() << endl; // 3
+    /// Pushing char back to a string
+    s += 'b';
+    s += 'c';
+    cout << s << endl; /// abcdfbc
 
-    // Output the elements of the vector using a loop
-    for (int i = 0; i < v.size(); i++) 
-        cout << v[i] << " "; // 1 3 3
+    /// Taking input string
+    cin >> s;
+    cout << s << endl;
+
+    s = "asdfgg";
+
+    /// Checking is a string empty or not
+    string s1;
+    cout << s.empty() << endl; /// 0
+    cout << s1.empty() << endl; /// 1
+
+    /// Assigning an string in another string variable
+    s1 = s;
+    s.clear();
+
+    cout << s.empty() << endl; /// 1
+    cout << s1.empty() << endl; /// 0
+
+    /// assigning 'k' in 0-th index
+    s = "asdfg";
+    s[0] = 'k';
+    cout << s << endl;  ///kasdfg;
+
+    s = "abc";
+    s1 = "def";
+
+    /// String concatenation
+    string tmp = s + s1;
+    cout << tmp << endl; /// abcdef
+
+    /// String iterator
+    string::iterator it;
+    for ( it = s.begin(); it != s.end(); it++ ) cout << *it; /// abc
     cout << endl;
 
-    // Initializing a vector with values
-    vector<int> v1 = {2, 3, 4};
-
-    // Output the size of the vector
-    cout << v1.size() << endl; // 3
-
-    // Output the elements of the vector using a loop
-    for (int i = 0; i < v1.size(); i++) 
-        cout << v1[i] << " "; // 2 3 4
+    /// For each loop
+    for ( auto c : s ) cout << c; /// abc
     cout << endl;
 
-    // Clearing the vector
-    v.clear();
-    cout << v.size() << endl; // 0
-    cout << v.empty() << endl; // 1
-    cout << v1.empty() << endl; // 0
 
-    // Resizing a vector
-    v1.resize(5);
-    cout << v1.size() << endl; // 5
-    for (int i = 0; i < v1.size(); i++) 
-        cout << v1[i] << " "; // 2 3 4 0 0
+    s = "asd";
+    tmp = s;
+
+    /// Comparing two strings
+    if ( tmp == s ) cout << "Yes Match\n";
+    else "No Match\n";
+
+    /// String reverse and checking is a string is palindrome or not
+    s = "asddsa";
+    tmp = s;
+    reverse( tmp.begin(), tmp.end() );
+
+    if ( tmp == s ) cout << "Yes Palindrome" << endl;
+    else cout << "Not Palindrome" << endl;
+
+    /// String sorting in non-decreasing order
+    s = "gfds";
+    sort ( s.begin(), s.end() );
+    cout << s << endl; /// dfgs
+
+    /// String sorting in non-increasing order
+    sort ( s.rbegin(), s.rend() );
+    cout << s << endl; /// sgfd
+
+    /// Getting all unique elements of a string. Be care full, string should be sorted.
+    s = "aaadddsss";
+    int n = unique( s.begin(), s.end() ) - s.begin();
+    for ( int i = 0; i < n; i++ ) cout << s[i];/// ads
     cout << endl;
 
-    // Initializing a vector with a specified size
-    vector<int> a(5);
-    cout << a.size() << endl; // 5
-    for (int i = 0; i < a.size(); i++) 
-        cout << a[i] << " "; // 0 0 0 0 0
-    cout << endl;
+    /// Getting maximum element of string
+    cout << *max_element( s.begin(), s.end() ) << endl; /// s
+    /// Getting minimum element of string
+    cout << *min_element( s.begin(), s.end() ) << endl; /// a
 
-    // Assigning the values of one vector to another
-    a = v1;
-    for (auto u : a) 
-        cout << u << " "; // 2 3 4 0 0
-    cout << endl;
+    /// When we want to take input with space
+    /// input : Muhammad Shahriar Alam
 
-    // Using iterators to traverse a vector
-    vector<int>::iterator it;
-    for (it = a.begin(); it != a.end(); it++) 
-        cout << *it << " "; // 2 3 4 0 0
-    cout << endl;
+    char c;
+    cin >> c;
+    getline( cin, s );
+    s = c + s;
 
-    // Sorting a vector in ascending order
-    a = {3, 4, 5, 1, 2};
-    sort(a.begin(), a.end());
-    for (auto u : a) 
-        cout << u << " "; // 1 2 3 4 5
-    cout << endl;
+    cout << s << endl; /// Muhammad Shahriar Alam
 
-    // Sorting a vector in descending order
-    sort(a.rbegin(), a.rend());
-    for (auto u : a) 
-        cout << u << " "; // 5 4 3 2 1
-    cout << endl;
+    /// If we need to sort some string on lexicographical order :
 
-    // Sorting a vector using a custom comparator for descending order
-    a = {3, 4, 5, 1, 2};
-    sort(a.begin(), a.end(), greater<int>());
-    for (auto u : a) 
-        cout << u << " "; // 5 4 3 2 1
-    cout << endl;
+    vector<string> v;
+    v.push_back( "Muhammad" );
+    v.push_back( "Nova" );
+    v.push_back( "Maslenia Mubarrat" );
+    v.push_back( "CPS Academy" );
+    v.push_back( "Rashedul Alam Anik" );
+    v.push_back( "Farhan sadik Sakib" );
+    v.push_back( "Gazi Mohaimin Iqbal" );
 
-    // Reversing the elements of a vector
-    a = {3, 4, 5, 1, 2};
-    reverse(a.begin(), a.end());
-    for (auto u : a) 
-        cout << u << " "; // 2 1 5 4 3
-    cout << endl;
+    sort ( v.begin(), v.end() );
+    for ( auto u : v ) cout << u << endl;
 
-    // Accessing the last element of a vector
-    cout << a.back() << endl; // 3
+    /**
 
-    // Removing the last element from a vector
-    a.pop_back();
-    cout << a.back() << endl; // 4
+    Out put :
 
-    // Initializing a vector and accessing its first element
-    a = {3, 4, 5, 1, 2};
-    cout << *a.begin() << endl; // 3
+    CPS Academy
+    Farhan sadik Sakib
+    Gazi Mohaimin Iqbal
+    Maslenia Mubarrat
+    Muhammad
+    Nova
+    Rashedul Alam Anik
 
-    // Erasing an element from a vector
-    a.erase(a.begin());
-    for (auto u : a) 
-        cout << u << " "; // 4 5 1 2
-    cout << endl;
+    */
 
-    // Erasing an element at a specific position in a vector
-    a.erase(a.begin() + 2);
-    for (auto u : a) 
-        cout << u << " "; // 4 5 2
-    cout << endl;
+	s = "asdf";
 
-    // Removing consecutive duplicate elements from a vector
-    a = {1, 1, 2, 2, 2, 3, 3};
-    unique(a.begin(), a.end());
-    for (auto u : a) 
-        cout << u << " "; // 1 2 3 2 2 3 3
-    cout << endl;
+	s.pop_back(); /// removes last char of string
+	cout << s.back() << endl; /// print last char of string
 
-    // Getting the number of unique elements in a vector
-    a = {1, 1, 2, 2, 2, 3, 3};
-    int n = unique(a.begin(), a.end()) - a.begin();
-    cout << n << endl; // 3
-    for (int i = 0; i < n; i++) 
-        cout << a[i] << " "; // 1 2 3
-    cout << endl;
+	v.clear();
 
-    // Finding the index and value of the maximum element in a vector
-    a = {2, 3, 1, 5};
-    cout << max_element(a.begin(), a.end()) - a.begin() << endl; // 3
-    cout << *max_element(a.begin(), a.end()) << endl; // 5
+	v = { "Shahriar", "Shahriar", "Momo", "Momo", "Sharif", "Sharif" };
+	int Sz = unique ( v.begin(), v.end() ) - v.begin();
+
+
+	cout << Sz << endl; /// Number of unique strings in vector v;
+	for ( int i = 0; i < Sz; i++ ) cout << v[i] << endl; /// Prints all unique strings in vector v
+
+	/// Converting int to string
+	int a = 123;
+	s = to_string (a);
+	cout << s << endl; /// 123
+	s[0] = '3';
+	cout << s << endl; /// 323
+
+	/// Converting string to integer
+
+	s = "123";
+	a = stoi ( s );
+	cout << a << endl; /// 123
+	a++;
+	cout << a << endl; /// 124;
+
+	/// Deleting a substring from string
+
+	s = "ShaKAKAhriar";
+
+	s.erase ( s.begin()+3, s.begin()+7 ); /// erase substring "KAKA" from string s
+	cout << s << endl;
+
+
+	/// Copying a substring of a string to a string
+	tmp = "Gagha Alam Gadha";
+	s = "Shahriar ";
+
+	copy ( tmp.begin()+6, tmp.begin()+10, back_inserter ( s ) ); /// copying "Alam substring to string s back.
+	cout << s << endl; /// Shahriar Alam
+
+	/// Erasing all occurrence of a specific char from string.
+
+	s = "aaassdddaaasdd";
+	s.erase ( remove ( s.begin(), s.end(), 'a' ), s.end() ); /// removes all 'a' from s
+	cout << s << endl;
+
+	/// Checking is a string is substring of another string in O(n*m)
+	s = "ashshasdakks";
+
+	if ( s.find( "asd" ) != -1 ) cout << "Substring found";
+	else cout << "Not found";
+
 
     return 0;
 }
