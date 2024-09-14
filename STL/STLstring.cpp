@@ -51,14 +51,14 @@ int main() {
     /// assigning 'k' in 0-th index
     s = "asdfg";
     s[0] = 'k';
-    cout << s << endl;  ///kasdfg;
+    cout << s << endl;  ///ksdfg;
 
     s = "abc";
     s1 = "def";
 
     /// String concatenation
     string tmp = s + s1;
-    cout << tmp << endl; /// abcdef
+    cout<<"s_cd" << tmp << endl; /// abcdef
 
     /// String iterator
     string::iterator it;
@@ -75,7 +75,7 @@ int main() {
 
     /// Comparing two strings
     if ( tmp == s ) cout << "Yes Match\n";
-    else "No Match\n";
+    else cout<<"No Match\n";
 
     /// String reverse and checking is a string is palindrome or not
     s = "asddsa";
