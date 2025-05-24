@@ -10,24 +10,23 @@ typedef double dl;
 #define fraction()  cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
 #define mem(a,b) memset (a, b, sizeof(a))
 #define sqr(a) ((a) * (a))
-const int mx = 100123;
-int a[mx];
-int freq[mx];
 
 int main() {
     optimize();
-    int n;
-    cin>>n;
-    for(int i = 0;i<n-1;i++) cin>>a[i];
-
-    for(int i = 0;i<n;i++){
-        freq[a[i]]++;
-
+    int toInt;
+    char ch[1000010];
+    cin>>ch;
+    int count = 0;
+    int length = strlen(ch);
+    
+    for(int i = 0 ;i<length;i++){
+        toInt = ch[i] - '0'; 
+         count+= toInt;
+           
     }
- for(int i =0;i<n;i++){
-    if(freq[i] == 0) cout<< i;
- }
+
+    cout<<count <<endl;
+
+
     return 0;
 }
-
-rahman

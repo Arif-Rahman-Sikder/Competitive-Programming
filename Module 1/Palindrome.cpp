@@ -10,24 +10,24 @@ typedef double dl;
 #define fraction()  cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
 #define mem(a,b) memset (a, b, sizeof(a))
 #define sqr(a) ((a) * (a))
-const int mx = 100123;
-int a[mx];
-int freq[mx];
 
 int main() {
     optimize();
-    int n;
-    cin>>n;
-    for(int i = 0;i<n-1;i++) cin>>a[i];
+    
+    char str[100];
+    cin>>str;
+    int len=0;
+    while( str[len]  != '\0' ) len++;
 
-    for(int i = 0;i<n;i++){
-        freq[a[i]]++;
-
+    // cout<<len<<endl;
+    bool isPalindrome = true;
+    for(int i = 0; i< len/2;i++){
+        if(str[i] != str[len-i-1]) isPalindrome=false;
     }
- for(int i =0;i<n;i++){
-    if(freq[i] == 0) cout<< i;
- }
+    if(isPalindrome) cout<<" isPalindrome ";
+    else cout<<" not Palindrome"<<endl;
+
+
+
     return 0;
 }
-
-rahman
